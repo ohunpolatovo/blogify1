@@ -1,83 +1,66 @@
-import React from 'react'
-import { createBrowserRouter,RouterProvider } from 'react-router-dom'
-import Home from "./pages/public/Home"
-import PostDetail from './pages/public/PostDetail'
-import ErrorPage from './pages/public/ErrorPage'
-import Posts from "./pages/public/Posts"
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import LoginPage from './pages/auth/LoginPage'
+// Layoutlar
+import AdminLayout from "./layouts/AdminLayout";
+import PublicLayout from "./layouts/PublicLayout";
 
-import Dashboard  from './pages/admin/Dashboard'
-import UpdatePost from './pages/admin/UpdatePost'
-import CeratePost from './pages/admin/CreatePost'
+// Sahifalar (Public)
+import Home from "./pages/public/Home";
+import Posts from "./pages/public/Posts";
+import PostDetail from "./pages/public/PostDetail";
+import ErrorPage from "./pages/public/ErrorPage";
 
-import AdminLayout from './layouts/AdminLayout'
-import PublicLayout from './layouts/PublicLayout'
-import Authlayout from './layouts/Authlayout'
-import CreatePost from './pages/admin/CreatePost'
+// Sahifalar (Admin)
+import Dashboard from "./pages/admin/Dashboard";
+import CreatePost from "./pages/admin/CreatePost";
+import UpdatePost from "./pages/admin/UpdatePost";
 
 function App() {
-
-    const routes=createBrowserRouter([
-        {
-            path: "/",
-            element: <PublicLayout/>,
-            children:[
-                {
-                    index:true,
-                    element:<Home/>
-                },
-                {
-                    path:"/posts",
-                    element:<Posts/>,
-                },
-                {
-                    path:"/posts/:id",
-                    element:<PostDetail/>,
-                },
-            ],
-        },
-        
-        {
-path:"/admin",
-element:<AdminLayout/>,
-children:[
+  const router = createBrowserRouter([
     {
-    index:true,
-    element:<Dashboard/>
-},
-{
-    path:'updatepost',
-    element:<UpdatePost/>
-},
-{
-    path:"createpost",
-    element:<CreatePost/>
-}
-
-]
+      path: "/",
+      element: <PublicLayout />,
+      children: [
+        {
+          index: true,
+          element: <Home />, // Home sahifasi
         },
         {
-            path: '/login',
-            element: <Authlayout/>,
-                        children: [
-                {
-index:true,
-element:<LoginPage/>
-            },
-          ],
+          path: "posts", // /posts
+          element: <Posts />, // Posts sahifasi
         },
         {
-            path:'*',
-            element:<ErrorPage/>
-        }
-    ]);
+          path: "posts/:id", // /posts/:id
+          element: <PostDetail />, // PostDetail sahifasi
+        },
+      ],
+    },
+    {
+      path: "/admin",
+      element: <AdminLayout />,
+      children: [
+        {
+          index: true,
+          element: <Dashboard />, // Dashboard sahifasi
+        },
+        {
+          path: "create-post", // /admin/create-post
+          element: <CreatePost />, // CreatePost sahifasi
+        },
+        {
+          path: "update-post", // /admin/update-post
+          element: <UpdatePost />, // UpdatePost sahifasi
+        },
+      ],
+    },
+    {
+      path: "*",
+      element: <ErrorPage />, // ErrorPage sahifasi
+    },
+  ]);
 
-
-
-  return <RouterProvider router={routes}/>
-    
-  
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

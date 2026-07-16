@@ -1,7 +1,7 @@
 import React from "react";
 
-function UpdatePost() {
+function MenuBar() {
   return <div></div>;
 }
 
-export default UpdatePost;
+export default MenuBar;

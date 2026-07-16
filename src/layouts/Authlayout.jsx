@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
 
-function Authlayout() {
-  return (
-    <div>
-      Authlayout
-    </div>
-  )
+function AuthLayout() {
+  return 
+ 
 }
 
-export default Authlayout
+export default AuthLayout;

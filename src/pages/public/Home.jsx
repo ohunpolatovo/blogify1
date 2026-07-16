@@ -1,8 +1,15 @@
-import React from 'react'
-import Hero from '../../components/Hero'
-
+import React from "react";
+import HeroHome from "../../components/HeroHome";
+import WhyChoose from "../../components/WhyChoose";
+import LatestPost from "../../components/LatestPost";
 function Home() {
-  return <Hero />
+  return (
+    <>
+      <HeroHome />
+      <WhyChoose />
+      <LatestPost />
+    </>
+  );
 }
 
-export default Home
+export default Home;

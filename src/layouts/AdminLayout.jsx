@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function AdminLayout() {
-  return (
-    <div>
-      AdminLayout
-    </div>
-  )
+  return <div></div>;
 }
 
-export default AdminLayout
+export default AdminLayout;
