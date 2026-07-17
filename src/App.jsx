@@ -10,6 +10,7 @@ import Home from "./pages/public/Home";
 import Posts from "./pages/public/Posts";
 import PostDetail from "./pages/public/PostDetail";
 import ErrorPage from "./pages/public/ErrorPage";
+import LoginPage from "./pages/auth/LoginPage";
 
 // Sahifalar (Admin)
 import Dashboard from "./pages/admin/Dashboard";
@@ -33,6 +34,10 @@ function App() {
         {
           path: "posts/:id", // /posts/:id
           element: <PostDetail />, // PostDetail sahifasi
+        },
+        {
+          path: "login", // /login
+          element: <LoginPage />, // Login sahifasi
         },
       ],
     },
