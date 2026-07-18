@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Layoutlar
 import AdminLayout from "./layouts/AdminLayout";
+import AuthLayout from "./layouts/AuthLayout";
 import PublicLayout from "./layouts/PublicLayout";
 
 // Sahifalar (Public)
@@ -35,8 +36,14 @@ function App() {
           path: "posts/:id", // /posts/:id
           element: <PostDetail />, // PostDetail sahifasi
         },
+      ],
+    },
+    {
+      path: "/login",
+      element: <AuthLayout />,
+      children: [
         {
-          path: "login", // /login
+          index: true,
           element: <LoginPage />, // Login sahifasi
         },
       ],
